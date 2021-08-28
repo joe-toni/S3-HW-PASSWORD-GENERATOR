@@ -27,6 +27,34 @@
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
+        <div  class= "hidden-questions">
+
+          <div class = "sliderContainer">
+            <p> Select your Desired password Length</p>
+            <p> Current password length: <span id = "slider-value"> </span></p>
+            <div class = "slider-display">
+             <p>8</p>
+              <input type="range" min = "8" max="128" value="8" id = "length-selector">
+              <p>128</p>
+            </div>
+            </div>
+           <div class = "characterOptions">
+            <div>
+            <input type = "checkbox" id = "lowerCaseBtn" checked> Include Lower Case
+            </div>
+            
+            <div>
+            <input type = "checkbox" id = "upperCaseBtn" checked > Include Upper Case
+            </div>
+            
+            <div>
+            <input type = "checkbox" id = "digitsBtn" checked> Include Digits
+            </div>
+
+            <div>
+            <input type = "checkbox" id = "symbolsBtn" checked> Include Symbols
+            </div>
+            </div>
       </div>
     </div>
     <script src="script.js"></script>
