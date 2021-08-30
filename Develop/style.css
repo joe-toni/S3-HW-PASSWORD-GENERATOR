@@ -129,11 +129,6 @@ button {
   #password {
     font-size: 1rem;
   }
-  .characterOptions
-  {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 @media (max-width: 500px) {
@@ -145,13 +140,14 @@ button {
 .questionModal
 {
   position: fixed;
-  z-index: 1;
+  z-index: -1;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
 }
 
 
@@ -166,9 +162,22 @@ button {
   box-shadow: rgba(0, 0, 0, 0.15) 8px 8px 16px 4px;
   color: hsl(206, 17%, 28%);
   font-size: 16px;
-  margin: 15% auto;
+  margin: 25vh auto;
   max-width: 800px;
   padding: 30px 40px;
+  }
+
+  .closeBtn
+  {
+    font-size: 30px;
+    align-self: flex-end;
+    border-radius: 5px;
+    color: black;
+  }
+
+  .closeBtn:hover
+  {
+    cursor: pointer;
   }
 
   .sliderContainer p
@@ -183,7 +192,7 @@ button {
 
  #length-selector
 {
- width: 50vw;
+ width:40vw;
 }
 
 .characterOptions

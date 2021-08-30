@@ -1,22 +1,71 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+var firstModal = document.getElementById("firstModal");
+var secondModal = document.getElementById("secondModal");
+
+var firstCloseBtn = document.getElementById("firstClose");
+var secondCloseBtn = document.getElementById("secondClose");
+
+var firstContinueBtn = document.getElementById("firstContinue");
+var secondContinueBtn = document.getElementById("secondContinue");
+
+
+
+
 // Write password to the #password input
 function writePassword() {
-  promptUser();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 }
 
-function promptUser()
+function opentFirstPrompt()
 {
+  firstModal.style.visibility = 'visible';
+  firstModal.style.zIndex = "1"
+}
+
+function answerFirstPrompt()
+{
+  openSecondPrompt();
+  closeFirstPrompt();
   
 }
 
+function closeFirstPrompt()
+{
+  firstModal.style.visibility = 'hidden';
+  firstModal.style.zIndex = "-1";
+}
+
+function openSecondPrompt()
+{
+  secondModal.style.visibility = 'visible';
+  secondModal.style.zIndex = "1";
+}
+
+function answerSecondPrompt()
+{
+  closeSecondPrompt();
+  writePassword();
+
+}
+
+function closeSecondPrompt()
+{
+  secondModal.style.visibility = 'hidden';
+  secondModal.style.zIndex = "-1"
+}
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", opentFirstPrompt);
+firstContinueBtn.addEventListener("click", answerFirstPrompt);
+secondContinueBtn.addEventListener("click", answerSecondPrompt);
+
+firstCloseBtn.addEventListener("click", closeFirstPrompt);
+secondCloseBtn.addEventListener("click", closeSecondPrompt);
 
 
 var slider = document.getElementById("length-selector");

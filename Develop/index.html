@@ -32,23 +32,24 @@
         </div>
        </div>
         
-       <div class = "questionModal">
+       <div id = firstModal class = "questionModal">
          <div class = "questionContainer">
-         <h3> Select your Desired password Length</h3>
+          <span id = "firstClose" class = "closeBtn">&times;</span>
+         <h3> Select the Desired  Length</h3>
          <p> Current password length: <span id = "slider-value"> </span></p>
          <div class = "slider-display">
            <p>8</p>
            <input type="range" min = "8" max="128" value="8" id = "length-selector">
            <p>128</p>
           </div>
-          <button id="firstPrompt" class="btn">Continue</button>
+          <button id="firstContinue" class="btn">Continue</button>
          </div></div>
 
 
-        <div class="questionModal">
+        <div id = secondModal class="questionModal">
          <div  class= "questionContainer">
+          <span id = "secondClose" class = "closeBtn">&times;</span>
            <h3> Select the Characters to Include </h3>
-           <span class = "closeBtn">&times;</span>
            <div class = "characterOptions">
             <div>
             <input type = "checkbox" id = "lowerCaseBtn" checked> Include Lower Case
@@ -66,7 +67,7 @@
             <input type = "checkbox" id = "symbolsBtn" checked> Include Symbols
             </div>
           </div>
-          <button id="secondPrompt" class="btn">Continue</button>
+          <button id="secondContinue" class="btn">Continue</button>
          </div>     </div>
     <script src="script.js"></script>
   </body>
