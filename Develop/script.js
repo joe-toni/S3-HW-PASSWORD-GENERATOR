@@ -3,11 +3,16 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  promptUser();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+}
 
+function promptUser()
+{
+  
 }
 
 // Add event listener to generate button
@@ -29,7 +34,7 @@ slider.oninput = function()
 var lowerCase = 'abcdefghijklmnopqrstuvwxyz';
 var digits = '0123456789';
 var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var symbols = ' !"#$%&()*+,-./:;<=>?@[\]^_`{|}~ ';
+var symbols = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~';
 
 var includeLower = true;
 var includeUpper = true;
@@ -73,27 +78,68 @@ const  randomSelection =
 };
 
 function getRandomLower()
-{const value = lowerCase[Math.floor(Math.random()*lowerCase.length)];
-console.log(value);
-return value;}
+{ return (lowerCase[Math.floor(Math.random()*lowerCase.length)]);}
 
 function getRandomDigit()
 { return  (digits[Math.floor(Math.random()*digits.length)])}
 
 function getRandomUpper()
-{ return  upperCase[Math.floor(Math.random()*upperCase.length)]}
+{ return  (upperCase[Math.floor(Math.random()*upperCase.length)])}
 
 function getRandomSymbol()
-{ return  (symbols[Math.floor(Math.random()*  symbols.length)])}
+{  return (symbols[Math.floor(Math.random()*  symbols.length)]);}
+
+function scramble(currentResult)
+{
+  var scrambledResult = currentResult.split("");
+  for(i = 0; i < scrambledResult.length; i++)
+    {
+      var randomIndex = Math.floor(Math.random()*scrambledResult.length);
+      var initial = scrambledResult[i];
+      scrambledResult[i] = scrambledResult[randomIndex];
+      scrambledResult[randomIndex] = initial;
+    }
+    return scrambledResult.join("");
+}
 
 
 let generatePassword = function()
 {
   let result = '';
   const includedTypes = includeLower + includeUpper + includeDigits + includeSymbols;
-  console.log(typeof(includedTypes));
   if(includedTypes === 0 )
   { return 'Please select at least one character type' ;}
   
   else
+  {
+    for(i = 0; i < selectedLength; i+=0)
+    {
+      if (includeLower && i < selectedLength)
+      {
+        i++;
+        result += getRandomLower();
+      }
+      if (includeUpper && i < selectedLength)
+      {
+        i++;
+        result += getRandomUpper();
+      }
+      if (includeDigits && i < selectedLength)
+      {
+        i++;
+        result += getRandomDigit();
+      }
+      if (includeSymbols && i < selectedLength)
+      {
+        i++;
+        result += getRandomSymbol();
+      }
+    }
+
+    console.log(result);
+    let endResult = scramble(result);
+    console.log(endResult);
+    
+    return (endResult);
+  }
 }
